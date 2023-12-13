@@ -55,6 +55,7 @@ function Home() {
             setLoading(false);
           });
       }
+      else{setLoading(false)}
     });
   }
 
