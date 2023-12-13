@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mylink</title>
+
+    <link href="./index.css" rel="stylesheet" />
+    <!--bootstrap link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--Font awasem icon-->
+    <script src="https://kit.fontawesome.com/425e0f53a2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text_head text-center py-3" id="link_tree_text" style="font-size: 30px;">
+            Link-Tree
+
+        </div>
+        <br>
+        <div class="row  d-flex justify-content-around">
+            <table class="col-11 col-md-5 table">
+                <tr align="center">
+                    <th colspan="3" class="text_head">Coding Platforms</th>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">Leetcode</span></th>
+                    <td><a href="https://leetcode.com/kavinprasanth9626/" style="color: black;" target="_blank"
+                            class="btn btn-success px-4   ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://leetcode.com/kavinprasanth9626/`)">Copy</button></td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">SkillRack</span></th>
+                    <td><a href="http://www.skillrack.com/profile/374049/b6cd06870f536c718b4d59d97e52a01a4929681d"
+                            style="color: black;" target="_blank" class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick='copy("http://www.skillrack.com/profile/374049/b6cd06870f536c718b4d59d97e52a01a4929681d")'>Copy</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">HackerRank</span></th>
+                    <td><a href="https://www.hackerrank.com/profile/kavin9626" style="color: black;" target="_blank"
+                            class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://www.hackerrank.com/profile/kavin9626`)">Copy</button></td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">CodeChef</span></th>
+                    <td><a href="https://www.codechef.com/users/kce717821p226" style="color: black;" target="_blank"
+                            class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://www.codechef.com/users/kce717821p226`)">Copy</button></td>
+                </tr>
+                
+                <tr>
+                    <th colspan="3"></th>
+                </tr>
+            </table>
+            <div class="col-9 col-md-5 d-flex justify-content-center" align="center">
+                <div class="row">
+                    <h3 class="text_head col-12 ">Online Profiles</h3><br><br><br>
+                    <div class="ring_container col-12">
+                        <div class="ring">
+                            <div class="online_profile_logo1" onclick="linkedin()"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="online_profile_logo2" onclick="github()"></div>
+                        </div>
+                        <div class="ring">
+                            <div class="online_profile_logo3" onclick="npm()"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 py-1">
+                        <div id="linked_in">
+                            <table>
+                                <tr>
+                                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                                            style="color: #ED7D31; ">LinkedIn&nbsp;&nbsp;</span></th>
+                                    <td><a href="https://www.linkedin.com/in/kavin-prasanth-s-249a05228"
+                                            style="color: black;cursor: pointer;" target="_blank"
+                                            class="btn btn-success   ">Open</a>&nbsp;&nbsp;</td>
+                                    <td> <button class="btn btn-primary " style="color: black;cursor: pointer;"
+                                            onclick="copy(`www.linkedin.com/in/kavin-prasanth-s-249a05228`)">Copy</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="git_hub">
+                            <table>
+                                <tr>
+                                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                                            style="color: #ED7D31; ">GitHub&nbsp;&nbsp;</span></th>
+                                    <td><a href="https://github.com/KAVIN-PRASANTH"
+                                            style="color: black;cursor: pointer;" target="_blank"
+                                            class="btn btn-success   ">Open</a>&nbsp;&nbsp;</td>
+                                    <td> <button class="btn btn-primary " style="color: black;cursor: pointer;"
+                                            onclick="copy(`github.com/KAVIN-PRASANTH`)">Copy</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="npm">
+                            <table>
+                                <tr>
+                                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                                            style="color: #ED7D31; ">npm&nbsp;&nbsp;</span></th>
+                                    <td><a href="https://www.npmjs.com/~itsmekavin"
+                                            style="color: black;cursor: pointer;" target="_blank"
+                                            class="btn btn-success   ">Open</a>&nbsp;&nbsp;</td>
+                                    <td> <button class="btn btn-primary " style="color: black;cursor: pointer;"
+                                            onclick="copy(`www.npmjs.com/~itsmekavin`)">Copy</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="row d-flex justify-content-around  ">
+            <table class="col-11 col-md-5 table  ">
+                <tr align="center">
+                    <th colspan="3" class="text_head">Projects</th>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">Digital Dining</span></th>
+                    <td><a href="https://idoho-food.netlify.app/" style="color: black;" target="_blank"
+                            class="btn btn-success px-4   ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://idoho-food.netlify.app/`)">Copy</button></td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">Portfolio</span></th>
+                    <td><a href="https://iamkavin.netlify.app/" style="color: black;" target="_blank"
+                            class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick='copy("https://iamkavin.netlify.app/")'>Copy</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">Tic Tac Toe</span></th>
+                    <td><a href="https://kavin-xogame.netlify.app" style="color: black;" target="_blank"
+                            class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://kavin-xogame.netlify.app`)">Copy</button></td>
+                </tr>
+                <tr>
+                    <th colspan="3"></th>
+                </tr>
+            </table>
+            <table class="col-11 col-md-5 table  ">
+                <tr align="center">
+                    <th colspan="3" class="text_head">Mini-Projects</th>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">Link-Tree</span></th>
+                    <td><a href="https://itsmekavin.netlify.app/" style="color: black;" target="_blank"
+                            class="btn btn-success px-4   ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://itsmekavin.netlify.app/`)">Copy</button></td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">3D-Photo-Animation</span></th>
+                    <td><a href="https://kavin-3danimation.netlify.app" style="color: black;" target="_blank"
+                            class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick='copy("https://kavin-3danimation.netlify.app")'>Copy</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">Bubble-Animation</span></th>
+                    <td><a href="https://kavin-bubble-animation.netlify.app" style="color: black;" target="_blank"
+                            class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://kavin-bubble-animation.netlify.app`)">Copy</button></td>
+                </tr>
+                <tr>
+                    <th class="d-flex align-items-center justify-content-left"><span class="mt-1"
+                            style="color: #ED7D31; ">Calculator</span></th>
+                    <td><a href="https://kavin-calculator.netlify.app" style="color: black;" target="_blank"
+                            class="btn btn-success px-4  ">Open</a></td>
+                    <td><button class="btn btn-primary px-4" style="color: black;"
+                            onclick="copy(`https://kavin-calculator.netlify.app`)">Copy</button></td>
+                </tr>
+                <tr>
+                    <th colspan="3"></th>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <header class="text_head text-center" style="color: red;">
+          Certification
+        </header>
+        <br>
+        <div class="row  d-flex justify-content-around align-items-between  ">
+            <div class="col-5 col-sm-4  d-flex justify-content-center">
+                <div class="flip_card JRC ">
+                    <div class="flip_card_inner ">
+                        <div class="flip_card_front text_head ">
+                           JRC
+                        </div>
+                        <div class="flip_card_back">
+                            <div class="row d-flex justify-content-between">
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c5.png`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c5.png`)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <div class="col-5 col-sm-4  d-flex justify-content-center">
+            <div class="flip_card JRC ">
+                <div class="flip_card_inner">
+                    <div class="flip_card_front text_head">
+                        Java
+                    </div>
+                    <div class="flip_card_back">
+                        <div class="row d-flex justify-content-between">
+                            <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c6.jpg`)"></i>
+                            <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c6.jpg`)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+            <div class="col-5 col-sm-4  d-flex justify-content-center">
+                <div class="flip_card JRC ">
+                    <div class="flip_card_inner">
+                        <div class="flip_card_front text_head">
+                           JS
+                        </div>
+                        <div class="flip_card_back">
+                            <div class="row d-flex justify-content-between">
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/js.png`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/js.png`)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+       <div class=" d-none d-sm-block"><br></div>
+        <div class="row  d-flex justify-content-around align-items-between  ">
+            <div class="col-5 col-sm-4  d-flex justify-content-center">
+                <div class="flip_card JRC ">
+                    <div class="flip_card_inner ">
+                        <div class="flip_card_front text_head ">
+                           Fullstack
+                        </div>
+                        <div class="flip_card_back">
+                            <div class="row d-flex justify-content-between">
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c3.jpg`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c3.jpg`)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <div class="col-5 col-sm-4  d-flex justify-content-center">
+            <div class="flip_card JRC ">
+                <div class="flip_card_inner">
+                    <div class="flip_card_front text_head text-center">
+                        Marathal Thagumo
+                    </div>
+                    <div class="flip_card_back">
+                        <div class="row d-flex justify-content-between">
+                            <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c4.jpg`)"></i>
+                            <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c4.jpg`)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+            <div class="col-5 col-sm-4  d-flex justify-content-center">
+                <div class="flip_card JRC ">
+                    <div class="flip_card_inner">
+                        <div class="flip_card_front text_head text-center">
+                           Hackie Techie
+                        </div>
+                        <div class="flip_card_back">
+                            <div class="row d-flex justify-content-between">
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c1.jpg`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c1.jpg`)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <br><br>
+        <!--React Code Integration part-->
+        <div id="root"></div>
+        <br/><br/>
+    </div>
+   
+    <script type="module" src="index.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

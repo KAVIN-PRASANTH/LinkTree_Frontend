@@ -1,0 +1,22 @@
+.login-register-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container,
+  .register-container {
+    background-color: transparent;
+    width: 300px; /* Adjust the width as needed */
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-register-container.flipped .login-container,
+  .login-register-container.flipped .register-container {
+    transform: rotateY(180deg);
+  }
+  
