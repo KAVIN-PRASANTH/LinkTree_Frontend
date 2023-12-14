@@ -224,8 +224,8 @@
                         </div>
                         <div class="flip_card_back">
                             <div class="row d-flex justify-content-between">
-                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c5.png`)"></i>
-                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c5.png`)"></i>
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./public/c5.png`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./public/c5.png`)"></i>
                             </div>
                         </div>
                     </div>
@@ -239,8 +239,8 @@
                     </div>
                     <div class="flip_card_back">
                         <div class="row d-flex justify-content-between">
-                            <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c6.jpg`)"></i>
-                            <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c6.jpg`)"></i>
+                            <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./public/c6.jpg`)"></i>
+                            <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./public/c6.jpg`)"></i>
                         </div>
                     </div>
                 </div>
@@ -254,8 +254,8 @@
                         </div>
                         <div class="flip_card_back">
                             <div class="row d-flex justify-content-between">
-                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/js.png`)"></i>
-                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/js.png`)"></i>
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./public/js.png`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./public/js.png`)"></i>
                             </div>
                         </div>
                     </div>
@@ -273,8 +273,8 @@
                         </div>
                         <div class="flip_card_back">
                             <div class="row d-flex justify-content-between">
-                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c3.jpg`)"></i>
-                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c3.jpg`)"></i>
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./public/c3.jpg`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./public/c3.jpg`)"></i>
                             </div>
                         </div>
                     </div>
@@ -288,8 +288,8 @@
                     </div>
                     <div class="flip_card_back">
                         <div class="row d-flex justify-content-between">
-                            <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c4.jpg`)"></i>
-                            <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c4.jpg`)"></i>
+                            <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./public/c4.jpg`)"></i>
+                            <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./public/c4.jpg`)"></i>
                         </div>
                     </div>
                 </div>
@@ -303,8 +303,8 @@
                         </div>
                         <div class="flip_card_back">
                             <div class="row d-flex justify-content-between">
-                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./Images/certificates/c1.jpg`)"></i>
-                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./Images/certificates/c1.jpg`)"></i>
+                                <i  class="col-5 icon  fa-solid fa-eye" onclick="viewDoc(`./public/c1.jpg`)"></i>
+                                <i class="col-5 icon fa-solid fa-download" onclick="downloade(`./public/c1.jpg`)"></i>
                             </div>
                         </div>
                     </div>
@@ -318,7 +318,56 @@
         <br/><br/>
     </div>
    
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
+    <script>
+        let copy = text => {
+    let textArea = document.createElement('textarea');
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+    Swal.fire({
+        icon: 'success',
+        title: 'Text-Copied',
+        confirmButtonColor: 'bg-success' 
+      });
+}
+function linkedin(){
+    document.getElementById("linked_in").style.display="block";
+    document.getElementById("npm").style.display="none";
+    document.getElementById("git_hub").style.display="none";
+}
+function github(){
+    document.getElementById("linked_in").style.display="none";
+    document.getElementById("npm").style.display="none";
+    document.getElementById("git_hub").style.display="block";
+}
+function npm(){
+    document.getElementById("linked_in").style.display="none";
+    document.getElementById("npm").style.display="block";
+    document.getElementById("git_hub").style.display="none";
+}
+function viewDoc(url){
+    Swal.fire({
+        imageUrl: `${url}`, 
+        imageAlt: 'Image Alt Text', 
+        imageWidth: '100%',  
+        imageHeight: '90%', 
+      });  
+}
+function downloade(url){
+    let originalName=url.split('/');
+    console.log(originalName);
+    let root=document.createElement('a');
+    root.href=url;
+    root.download=`kavin-${originalName[3]}`;
+    document.body.appendChild(root);
+    root.click();
+    document.body.removeChild(root);
+  
+}
+    </script>
     <script type="module" src="/src/main.jsx"></script>
 </body>
 
