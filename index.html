@@ -361,7 +361,7 @@ function downloade(url){
     console.log(originalName);
     let root=document.createElement('a');
     root.href=url;
-    root.download=`kavin-${originalName[3]}`;
+    root.download=`kavin-${originalName[2]}`;
     document.body.appendChild(root);
     root.click();
     document.body.removeChild(root);
