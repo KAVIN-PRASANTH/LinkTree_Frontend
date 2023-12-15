@@ -10,7 +10,7 @@
 body{
     width: 100%;
     height: 100vh;
-    background-image: url('./public/Icon-Parallax.gif');
+    background-image: url('/Icon-Parallax.gif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,7 +47,7 @@ body{
 }
 .online_profile_logo1{
     border-radius:50%;
-    background-image: url('./public/linkedin.png');
+    background-image: url('/linkedin.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,7 +58,7 @@ body{
 }
 .online_profile_logo2{
     border-radius:50%;
-    background-image: url('./public/git.png');
+    background-image: url('/git.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -69,7 +69,7 @@ body{
 }
 .online_profile_logo3{
     border-radius:50%;
-    background-image: url('./public/npmlogo.png');
+    background-image: url('/npmlogo.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
