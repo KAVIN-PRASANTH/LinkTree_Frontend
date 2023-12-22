@@ -6,18 +6,19 @@ function TableTemplate(props) {
     const [data, setData] = useState(props.data);
     function addLink() {
         Swal.fire({
-            title: 'Enter Link',
-            input: 'text',
-            inputLabel: 'Link URL',
-            inputPlaceholder: 'https://example.com',
+            title: 'Enter Data',
+            html:
+                '<input id="swal-input2" class="swal2-input" placeholder="Name">' +
+                '<input id="swal-input1" class="swal2-input" placeholder="Link">',
             showCancelButton: true,
             confirmButtonText: 'Submit',
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const link = result.value;
-                await axios.post("https://linktreebackend-11oe.onrender.com/api/addLink", { link: result.value }).then(message => {
+                const link = document.getElementById('swal-input1').value;
+                const name = document.getElementById('swal-input2').value;
+                await axios.post("https://linktreebackend-11oe.onrender.com/api/addLink", { link, name }).then(message => {
                     if (message.data.result === "success") {
-                        setData(prevData => [...prevData, link]);
+                        setData(prevData => [...prevData, { link, name }]);
                         Swal.fire({
                             icon: "success",
                             title: "Link Added Successfully"
@@ -29,7 +30,7 @@ function TableTemplate(props) {
                             title: "Try again later"
                         })
                     }
-                }).catch((error)=>{
+                }).catch((error) => {
                     console.log(error);
                     Swal.fire({
                         icon: "error",
@@ -39,7 +40,7 @@ function TableTemplate(props) {
 
             }
         });
-        
+
     }
     async function deleteRow(link) {
         Swal.fire({
@@ -53,7 +54,7 @@ function TableTemplate(props) {
         }).then(async result => {
             if (result.isConfirmed) {
                 await axios.delete("https://linktreebackend-11oe.onrender.com/api/deleteLink", { data: { id: link } }).then(message => {
-                    setData(prevData => prevData.filter(row => row !== link));
+                    setData(prevData => prevData.filter(row => row.link !== link));
                     if (message.data.success == "ok") {
                         Swal.fire({
                             icon: "success",
@@ -76,49 +77,50 @@ function TableTemplate(props) {
                 })
             }
         })
-        
+
     }
-    function editRow(link){
+    function editRow(link, name) {
+
         Swal.fire({
             title: 'Edit Data',
-            input:"text",
-            inputPlaceholder:"Enter new data",
-            showCancelButton: true,
-            confirmButtonText: 'Save',
+            html:
+                `<input id="swal-input2" class="swal2-input" value="${name}">` +
+                `<input id="swal-input1" class="swal2-input" value="${link}">`,
             cancelButtonText: 'Cancel',
-            
-          }).then(async (result) => {
-            console.log(result)
+            showCancelButton: true
+
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                const newDataValue = result.value;
-                await axios.patch("https://linktreebackend-11oe.onrender.com/api/editLink",{oldLink:link,newLink:newDataValue}).then(message=>{
-                    if(message.data.success=="ok")
-                    {
-                        setData(prevData => prevData.map(row => (row === link ? newDataValue : row)));
+                const newLink = document.getElementById('swal-input1').value;
+                const name = document.getElementById('swal-input2').value;
+
+                await axios.patch("https://linktreebackend-11oe.onrender.com/api/editLink", { oldLink: link, newLink, name }).then(message => {
+                    if (message.data.success == "ok") {
+                        setData(prevData => prevData.map(row => (row.link === link ? { link: newLink, name } : row)));
                         Swal.fire({
                             icon: 'success',
                             title: 'Data Edited Successfully',
                             confirmButtonText: 'OK'
-                          });
+                        });
                     }
-                    else{
+                    else {
                         Swal.fire({
                             icon: 'error',
                             title: 'Try again later',
                             confirmButtonText: 'OK'
-                          });
+                        });
                     }
-                }).catch(error=>{
+                }).catch(error => {
                     Swal.fire({
                         icon: 'error',
                         title: 'Try again later',
                         confirmButtonText: 'OK'
-                      });
+                    });
                 })
-              
+
             }
-          });
-        
+        });
+
     }
     function copyText(text) {
         let textArea = document.createElement('textarea');
@@ -134,10 +136,11 @@ function TableTemplate(props) {
         });
     }
     return (
-        <div style={{overflow:"scroll"}}>
+        <div style={{ overflowX: "scroll" }}>
             <table className="table text-light " id="link_table" align="center">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Link</th>
                         <th>Copy</th>
                         <th>Edit</th>
@@ -148,10 +151,11 @@ function TableTemplate(props) {
                     {data.map((row, index) => {
                         return (
                             <tr key={index} >
-                                <td style={{ textDecoration: "underline", color: "blue" }}><a href={`${row}`} target="_blank">{`${row}`}</a></td>
-                                <td><button className="btn btn-success" onClick={() => copyText(`${row}`)}>Copy</button></td>
-                                <td><button className="btn btn-primary" onClick={()=>editRow(`${row}`)}>Edit</button></td>
-                                <td><button className="btn btn-danger" onClick={() => deleteRow(`${row}`)}>Delete</button></td>
+                                <td>{`${row.name}`}</td>
+                                <td style={{ textDecoration: "underline", color: "blue" }}><a href={`${row.link}`} target="_blank">{`${row.link}`}</a></td>
+                                <td><button className="btn btn-success" onClick={() => copyText(`${row.link}`)}>Copy</button></td>
+                                <td><button className="btn btn-primary" onClick={() => editRow(`${row.link}`, `${row.name}`)}>Edit</button></td>
+                                <td><button className="btn btn-danger" onClick={() => deleteRow(`${row.link}`)}>Delete</button></td>
                             </tr>
                         )
                     })}

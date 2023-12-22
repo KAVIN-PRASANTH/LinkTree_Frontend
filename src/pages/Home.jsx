@@ -29,12 +29,17 @@ function Home() {
                   await axios.get("https://linktreebackend-11oe.onrender.com/api/getData")
                     .then(message => {
                       setLoading(false)
-                      const newDataArray = message.data.map(item => item.link);
-                      console.log(newDataArray);
-                      setDataArray(newDataArray);
+                      const newDataArray = message.data.map(item => item);
+                      setDataArray(message.data);
                       setDisplay(true);
                     })
-                    .catch(error => console.log(error));
+                    .catch(error => {
+                      console.log(error)
+                      Swal.fire({
+                        icon: "error",
+                        title: "Try again later"
+                      });
+                    });
                 }
               });
             } else {
@@ -51,11 +56,11 @@ function Home() {
               icon: "error",
               title: "Try again later"
             });
-          }).finally(()=>{
+          }).finally(() => {
             setLoading(false);
           });
       }
-      else{setLoading(false)}
+      else { setLoading(false) }
     });
   }
 
@@ -67,7 +72,7 @@ function Home() {
         </div>}
 
         {loading && <div className='btn btn-danger col-6' style={{ cursor: 'pointer' }} onClick={Validation}>
-          <ClipLoader size={20} color='white'/>
+          <ClipLoader size={20} color='white' />
         </div>}
       </div>
       <br />
