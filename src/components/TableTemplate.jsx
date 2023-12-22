@@ -134,7 +134,7 @@ function TableTemplate(props) {
         });
     }
     return (
-        <div>
+        <div style={{overflow:"scroll"}}>
             <table className="table text-light " id="link_table" align="center">
                 <thead>
                     <tr>
